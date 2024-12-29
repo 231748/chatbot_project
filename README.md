@@ -37,7 +37,7 @@ Visit the link it shows (usually http://localhost:8501) in your browser to chat 
 
 ```
 User: What is AI?
-Bot: AI stands for Artificial Intelligence. It refers to systems designed to mimic human intelligence.
+Bot: Artificial intelligence (AI) is a broad field encompassing the development of computer systems capable of performing tasks that typically require human intelligence. These tasks can include learning, problem-solving, decision-making, speech recognition, visual perception, and language translation. There are various approaches to AI, including machine learning, deep learning, and rule-based systems. Each approach has its own strengths and weaknesses and is suited to different types of tasks.
 ```
 
 ## Project Structure
