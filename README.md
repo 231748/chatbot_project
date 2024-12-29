@@ -28,7 +28,7 @@ This is a chatbot that works in a browser. It uses:
 
 Run the chatbot using Streamlit:
 ```bash
-streamlit run app.py
+streamlit run src/app.py
 ```
 
 Visit the link it shows (usually http://localhost:8501) in your browser to chat with the bot.
