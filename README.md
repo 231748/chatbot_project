@@ -1,38 +1,40 @@
 # Chatbot Project
 
-This project is a chatbot application that integrates Streamlit for the user interface, Google Generative AI (GenAI) for natural language processing, and ChromaDB for vector storage of queries and responses.
+This is a chatbot that works in a browser. It uses:
+- **Streamlit** for the interface.
+- **Google Generative AI (GenAI)** to generate responses.
+- **ChromaDB** to store questions and answers.
 
 ## Installation
 
-1. Clone the repository:
+1. Clone this project:
    ```bash
-   git clone <your-repository-url>
+   git clone https://github.com/231748/chatbot_project.git
    cd chatbot_project
    ```
 
-2. Create a virtual environment (optional but recommended):
+2. Set up a virtual environment (optional):
    ```bash
    python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   source venv/bin/activate  # For Windows: venv\Scripts\activate
    ```
 
-3. Install dependencies:
+3. Install the required libraries:
    ```bash
    pip install -r requirements.txt
    ```
 
 ## Usage
 
-Run the chatbot application using Streamlit:
+Run the chatbot using Streamlit:
 ```bash
 streamlit run app.py
 ```
 
-Open the link in your browser (usually http://localhost:8501) to interact with the chatbot.
+Visit the link it shows (usually http://localhost:8501) in your browser to chat with the bot.
 
-## Examples
+## Example Interaction
 
-Example interaction:
 ```
 User: What is AI?
 Bot: AI stands for Artificial Intelligence. It refers to systems designed to mimic human intelligence.
@@ -42,18 +44,16 @@ Bot: AI stands for Artificial Intelligence. It refers to systems designed to mim
 
 ```
 chatbot_project/
-├── README.md           # Project documentation
-├── LICENSE             # License file (optional)
-├── requirements.txt    # Python dependencies
-├── app.py              # Main application script
-├── src/                # Source code files (if any additional are added)
-├── test/               # Test scripts (future use)
-├── chroma_db/          # Vector database folder
-└── venv/               # Virtual environment folder (optional)
+├── README.md           # Project information
+├── LICENSE             # License details
+├── requirements.txt    # List of required libraries
+├── src/                # Main chatbot program
+├── test/               # Tests
+└── chroma_db/          # Database folder
 ```
 
 ## Features
 
-- **Chat Functionality**: Chat with the bot using a user-friendly interface powered by Streamlit.
-- **LLM Integration**: Google Generative AI (Gemini) processes and generates responses.
-- **Vector Storage**: Stores user queries and responses in ChromaDB.
+- **Chat Interface**: Easy-to-use chat feature built with Streamlit.
+- **AI Responses**: Powered by Google GenAI for generating answers.
+- **Query Storage**: Saves user questions and bot answers in ChromaDB.
