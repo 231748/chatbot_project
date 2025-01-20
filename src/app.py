@@ -20,24 +20,26 @@ collection = chroma_client.get_or_create_collection(
     embedding_function=embedding_function
 )
 
-# Streamlit app setup
-st.title("Chatbot with File and Memory")
+# Load the Kazakhstan Constitution into memory
+constitution_file = "kazakhstan_constitution.txt"
+try:
+    with open(constitution_file, "r", encoding="utf-8") as file:
+        constitution_text = file.read()
+except FileNotFoundError:
+    raise Exception(f"Error: {constitution_file} not found. Ensure it is bundled with the program.")
 
-# File upload section
-st.subheader("Upload Files")
-uploaded_files = st.file_uploader("Upload your files for analysis (supports .txt)", accept_multiple_files=True, type=["txt"])
-if uploaded_files:
-    for uploaded_file in uploaded_files:
-        file_content = uploaded_file.read().decode("utf-8")
-        collection.add(
-            documents=[file_content],
-            metadatas=[{"filename": uploaded_file.name}],
-            ids=[str(hash(uploaded_file.name))]
-        )
-    st.success(f"{len(uploaded_files)} file(s) uploaded and stored in memory.")
+# Add the constitution to the ChromaDB collection during initialization
+collection.add(
+    documents=[constitution_text],
+    metadatas=[{"source": "Kazakhstan Constitution"}],
+    ids=["constitution"]
+)
+
+# Streamlit app setup
+st.title("Kazakhstan Constitution Chatbot")
 
 # User input for chat
-st.subheader("Ask Questions or Chat")
+st.subheader("Ask Questions")
 user_input = st.text_input("You:", "")
 
 if user_input:
@@ -50,7 +52,7 @@ if user_input:
         context = " ".join(documents) if documents else "No relevant context found."
 
         # Generate response using GenAI
-        model_name = "gemini-1.5-pro"
+        model_name = "gemini-1.5-pro"  # Specify the appropriate model name
         model = genai.GenerativeModel(model_name)
         prompt = f"Context: {context}\nUser: {user_input}\nBot:"
         response = model.generate_content(prompt)
